@@ -1,13 +1,16 @@
-import { defineConfig, dynamic } from 'umi';
+import { defineConfig } from 'umi';
 
 export default defineConfig({
+  nodeModulesTransform: {
+    type: 'none',
+  },
   dynamicImport: {
     loading: '@/loading',
   },
   history: { type: 'hash' },
-  nodeModulesTransform: {
-    type: 'none',
-  },
+  //publicPath: "https://cdn.jsdelivr.net/gh/fierew/blog-admin-cdn@v1.0.2/",
+  publicPath: "/",
+  runtimePublicPath: true,
   antd: {
     dark: false,
     compact: false,

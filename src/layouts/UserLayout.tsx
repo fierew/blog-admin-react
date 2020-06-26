@@ -5,8 +5,6 @@ import styles from './UserLayout.less';
 import logo from '@/assets/logo.svg';
 
 export default (props: { userContent: any }) => {
-  const title = 'Bog Admin';
-
   const userContent = props.userContent;
 
   return (

@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+  <base href="<%= context.config.publicPath %>" />
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="keywords" content="antd,umi,umijs,ant design,脚手架,布局, Ant Design,项目,Pro,admin,控制台,主页,开箱即用,中后台,解决方案,组件库" />
@@ -11,8 +12,8 @@
       开箱即用的中台前端/设计解决方案。" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
   <title>Ant Design Pro</title>
-  <link rel="icon" href="/favicon.png" type="image/x-icon" />
-  <link rel="stylesheet" href="/prism/prism.css">
+  <link rel="icon" href="favicon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="prism/prism.css">
 </head>
 <style>
   .umi-plugin-layout-right .ant-dropdown-trigger .ant-avatar:nth-child(1) {
@@ -45,7 +46,7 @@
       }
 
       #root {
-        background-image: url('/home_bg.png');
+        background-image: url('home_bg.png');
         background-repeat: no-repeat;
         background-size: 100% auto;
       }
@@ -215,8 +216,8 @@
       </div>
     </div>
   </div>
-  <script src="/prism/prism.js"></script>
-  <script src="/tinymce/tinymce.min.js"></script>
+  <script src="prism/prism.js"></script>
+  <script src="tinymce/tinymce.min.js"></script>
 </body>
 
 </html>

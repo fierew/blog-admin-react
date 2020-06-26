@@ -8,6 +8,7 @@ declare global {
   interface Window {
     previewWindow: any;
     tinymce: any;
+    publicPath: string;
   }
 }
 
@@ -126,7 +127,7 @@ export default () => {
     ],
     codesample_global_prismjs: true, // 使用本地全局prismjs
     save_enablewhendirty: false, // 保存按钮是否禁用 直到用户有修改行为后启动
-    content_css: ['/prism/prism.css'],
+    content_css: [window.publicPath + 'prism/prism.css'],
     setup: (editor: any) => {
       // 新增自定义浏览按钮
       editor.ui.registry.addButton('preview', {
@@ -153,7 +154,7 @@ export default () => {
     images_upload_handler: (blobInfo: any, success: any, failure: any) => {
       //这里写你上传图片的方法
     },
-    save_onsavecallback: function() {
+    save_onsavecallback: function () {
       // 保存回调
 
       if (editorContent !== '' && editorContent !== '<p></p>') {
@@ -164,7 +165,7 @@ export default () => {
 
       //tinymce.activeEditor.execCommand('mceCancel');
     },
-    save_oncancelcallback: function() {
+    save_oncancelcallback: function () {
       console.log('Save canceled');
     },
   };
@@ -178,7 +179,7 @@ export default () => {
   };
 
   // 根据后端返回的数据生成颜色对象
-  const colors:any = {
+  const colors: any = {
     'docker': 'red'
   }
 
