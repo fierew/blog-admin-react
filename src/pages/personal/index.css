@@ -1,0 +1,17 @@
+.pages_user_personal_setting_input {
+    width: 368px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+@media screen and (max-width: 576px){
+    .pages_user_personal_setting_input {
+        width: 95%;
+    }
+}
+
+.pages_user_personal_form_title {
+    font-size: 14px;
+    color: rgba(0,0,0,.85);
+    padding-bottom: 8px;
+}

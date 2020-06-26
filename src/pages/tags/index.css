@@ -1,0 +1,14 @@
+.page_model_right_button {
+    margin-top: 0px;
+    width: 100%;
+}
+
+@media (max-width: 575px){
+    .page_model_right_button {
+        margin-top: 40px;
+    }
+}
+
+.page_color {
+    padding: 0;
+}

@@ -1,0 +1,42 @@
+.pages_user_login_main {
+  width: 368px;
+  margin: 0px auto;
+}
+
+@media screen and (max-width: 576px){
+  .pages_user_login_main {
+    width: 95%;
+  }
+}
+
+.login_form_forgot {
+    float: right;
+}
+
+.login_form_button {
+    width: 100%;
+    margin-top: 24px
+}
+
+.pages_user_login_other {
+    margin-top: 24px;
+    line-height: 22px;
+    text-align: left;
+}
+
+.pages_user_login_icon {
+    margin-left: 16px;
+    color: rgba(0, 0, 0, .2);
+    font-size: 24px;
+    vertical-align: middle;
+    cursor: pointer;
+    transition: color .3s;
+}
+
+.pages_user_login_icon:hover {
+    color: #1890ff;
+}
+
+.pages_user_login_register {
+    float: right;
+}

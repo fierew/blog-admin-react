@@ -1,0 +1,10 @@
+.pages_user_login_main {
+  width: 368px;
+  margin: 0px auto;
+}
+
+@media screen and (max-width: 576px){
+  .pages_user_login_main {
+    width: 95%;
+  }
+}
