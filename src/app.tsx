@@ -1,12 +1,13 @@
 import React from 'react';
 import request from '@/utils/request';
 import { UseRequestProvider } from 'ahooks';
+import { history } from 'umi';
 import { loopMenuItem } from '@/utils/patchMenus';
 
 export const layout = {
   //iconfontUrl: "/icons/iconfont.js",
   logout: () => {
-    console.log(11);
+    history.push('/login');
   }, // do something
   //loading: true,
   patchMenus: (menus: any) => {
