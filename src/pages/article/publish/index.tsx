@@ -236,18 +236,18 @@ export default () => {
   };
 
   return (
-    <div>
+    <>
       <Prompt when={formIsHalfFilledOut} message="你确定要离开么？" />
-      <div style={{ textAlign: 'center' }}>
-        <Spin
-          style={{
-            borderRadius: 4,
-            marginBottom: 20,
-            paddingTop: 100,
-          }}
-          size="large"
-          spinning={loading}
-        />
+      <div
+        style={{
+          textAlign: 'center',
+          paddingTop: 100,
+          position: 'absolute',
+          zIndex: 3,
+          width: '100%',
+        }}
+      >
+        <Spin size="large" spinning={loading} />
       </div>
       {model}
       <Editor
@@ -257,6 +257,6 @@ export default () => {
         onEditorChange={handleEditorChange}
         onInit={onInit}
       />
-    </div>
+    </>
   );
 };
