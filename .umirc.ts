@@ -8,7 +8,7 @@ export default defineConfig({
     loading: '@/loading',
   },
   history: { type: 'hash' },
-  publicPath: "https://cdn.jsdelivr.net/gh/fierew/blog-admin-cdn@v1.0.2/",
+  publicPath: 'https://cdn.jsdelivr.net/gh/fierew/blog-admin-cdn@v1.0.3/',
   runtimePublicPath: true,
   antd: {
     dark: false,

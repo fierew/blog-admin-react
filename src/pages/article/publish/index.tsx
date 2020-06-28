@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import styles from './index.css';
 import { Editor } from '@tinymce/tinymce-react';
 import { useParams, Prompt } from 'umi';
-import { Modal, Input, Form, Select, Tag } from 'antd';
+import { Modal, Input, Form, Select, Tag, Spin } from 'antd';
+import { preview } from '@/utils/preview';
 
 declare global {
   interface Window {
@@ -20,6 +21,7 @@ export default () => {
   const [formIsHalfFilledOut, setFormIsHalfFilledOut] = useState(false);
   const [visible, setVisible] = useState(false);
   const [modelTitle, setModelTitle] = useState('');
+  const [loading, setLoading] = useState(true);
   const { id } = useParams();
   const { tinymce } = window;
 
@@ -39,53 +41,9 @@ export default () => {
     setValue(content);
     editorContent = content;
     setFormIsHalfFilledOut(
-      content !== '' && content !== '<p></p>' ? true : false,
+      content !== '' && content !== '<p></p>' ? true : false,
     );
     //console.log('Content was updated:', editorContent);
-  };
-
-  // 浏览功能模板
-  const buildPreviewHtml = () => {
-    const host = window.location.protocol + '//' + window.location.host;
-
-    const ua = navigator.userAgent;
-    const ipad = ua.match(/(iPad).*OS\s([\d_]+)/),
-      isIphone = !ipad && ua.match(/(iPhone\sOS)\s([\d_]+)/),
-      isAndroid = ua.match(/(Android)\s+([\d.]+)/),
-      isMobile = isIphone || isAndroid;
-
-    let tempCss = 'content.min.css';
-
-    if (isMobile) {
-      tempCss = 'content.mobile.min.css';
-    }
-
-    return `<!DOCTYPE html>
-        <html>
-            <head>
-                <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-                <base href="${host}/article/">
-                <link type="text/css" rel="stylesheet" href="${host}/tinymce/skins/ui/oxide/${tempCss}">
-                <link type="text/css" rel="stylesheet" href="${host}/prism/prism.css">
-                <script src="${host}/prism/prism.js"  ></script>
-            </head>
-            
-            <body id="tinymce" class="mce-content-body ">
-                ${editorContent}
-                <script>document.addEventListener && document.addEventListener("click", function (e) { for (var elm = e.target; elm; elm = elm.parentNode) { if (elm.nodeName === "A" && !(e.metaKey)) { e.preventDefault(); } } }, false);</script>
-            </body>
-        </html>`;
-  };
-
-  // 浏览功能
-  const preview = () => {
-    if (window.previewWindow) {
-      window.previewWindow.close();
-    }
-
-    window.previewWindow = window.open();
-    window.previewWindow.document.write(buildPreviewHtml());
-    window.previewWindow.document.close();
   };
 
   // 初始化富文本
@@ -177,7 +135,9 @@ export default () => {
       editor.ui.registry.addButton('mypreview', {
         tooltip: '预览',
         icon: 'preview',
-        onAction: preview,
+        onAction: () => {
+          preview(editorContent);
+        },
       });
     },
     relative_urls: false, // 相对url
@@ -271,15 +231,31 @@ export default () => {
     </Modal>
   );
 
+  const onInit = () => {
+    setLoading(false);
+  };
+
   return (
     <div>
       <Prompt when={formIsHalfFilledOut} message="你确定要离开么？" />
+      <div style={{ textAlign: 'center' }}>
+        <Spin
+          style={{
+            borderRadius: 4,
+            marginBottom: 20,
+            paddingTop: 100,
+          }}
+          size="large"
+          spinning={loading}
+        />
+      </div>
       {model}
       <Editor
         inline={false}
         initialValue={value}
         init={{ ...editorObj }}
         onEditorChange={handleEditorChange}
+        onInit={onInit}
       />
     </div>
   );
