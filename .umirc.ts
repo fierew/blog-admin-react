@@ -16,15 +16,15 @@ export default defineConfig({
   },
   layout: {
     name: 'Blog Admin',
-    locale: true,
+    locale: false,
   },
-  locale: {
-    default: 'zh-CN',
-    antd: true,
-    title: true,
-    baseNavigator: false,
-    baseSeparator: '-',
-  },
+  // locale: {
+  //   default: 'zh-CN',
+  //   antd: true,
+  //   title: true,
+  //   baseNavigator: false,
+  //   baseSeparator: '-',
+  // },
   routes: [
     {
       path: '/',

@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './index.less';
 import { history } from 'umi';
-import { useIntl } from 'umi';
 import request from '@/utils/request';
 import { useRequest } from 'ahooks';
 

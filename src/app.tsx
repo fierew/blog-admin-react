@@ -42,3 +42,29 @@ export async function getInitialState() {
     role: 'admin',
   };
 }
+
+// let extraRoutes: any; // 服务端返回路由
+// export function patchRoutes({ routes }: any) {
+
+//   // 修改默认路由 直接 routes，不需要返回
+//   routes[0].routes = [
+//     {
+//       path: '/dashboard',
+//       exact: true,
+//       component: require(`@/pages/${extraRoutes}`).default,
+//       name: '仪表盘',
+//       icon: 'dashboard',
+//       title: '仪表盘',
+//     }
+//   ]
+// }
+
+// // 项目启动时
+// export function render(oldRender: () => void) {
+
+//   // 向服务端请求路由数据
+//   request('http://localhost:8080/routes').then((res) => {
+//     extraRoutes = res.data[0].key;
+//     oldRender()
+//   });
+// }
