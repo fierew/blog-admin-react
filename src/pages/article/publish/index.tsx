@@ -238,7 +238,7 @@ export default () => {
   return (
     <>
       <Prompt when={formIsHalfFilledOut} message="你确定要离开么？" />
-      <div
+      <Spin
         style={{
           textAlign: 'center',
           paddingTop: 100,
@@ -246,9 +246,9 @@ export default () => {
           zIndex: 3,
           width: '100%',
         }}
-      >
-        <Spin size="large" spinning={loading} />
-      </div>
+        size="large"
+        spinning={loading}
+      />
       {model}
       <Editor
         inline={false}

@@ -8,7 +8,7 @@ export default defineConfig({
     loading: '@/loading',
   },
   history: { type: 'hash' },
-  publicPath: 'https://cdn.jsdelivr.net/gh/fierew/blog-admin-cdn@v1.0.4/',
+  publicPath: 'https://cdn.jsdelivr.net/gh/fierew/blog-admin-cdn@v1.0.5/',
   runtimePublicPath: true,
   antd: {
     dark: false,
@@ -63,14 +63,14 @@ export default defineConfig({
     {
       path: '/article',
       name: '文章管理',
-      icon: 'heart',
+      icon: 'read',
       routes: [
         {
           path: '/article/list',
           exact: true,
           component: 'article/list',
           name: '文章列表',
-          icon: 'smile',
+          icon: 'unorderedList',
           title: '文章列表',
         },
         {
@@ -78,7 +78,7 @@ export default defineConfig({
           exact: true,
           component: 'article/publish',
           name: '发布文章',
-          icon: 'icon-iconfonticon-dianyu',
+          icon: 'highlight',
           title: '发布文章',
         },
         { component: '@/pages/404' },
@@ -121,20 +121,20 @@ export default defineConfig({
       exact: true,
       component: 'personal',
       name: '个人设置',
-      icon: 'user',
+      icon: 'setting',
       title: '个人设置',
     },
     {
       path: '/monitor',
       name: '监控系统',
-      icon: 'icon-iconfonticon-dianyu',
+      icon: 'fundProjectionScreen',
       routes: [
         {
           path: '/monitor/online_users',
           exact: true,
           component: 'monitor/online_users',
           name: '在线用户',
-          icon: 'icon-iconfonticon-dianyu',
+          icon: 'user',
           title: '在线用户',
         },
         {
@@ -142,7 +142,7 @@ export default defineConfig({
           exact: true,
           component: 'monitor/tasks',
           name: '定时任务',
-          icon: 'icon-iconfonticon-dianyu',
+          icon: 'clockCircle',
           title: '定时任务',
         },
         {
@@ -150,7 +150,7 @@ export default defineConfig({
           exact: true,
           component: 'monitor/data',
           name: '数据监控',
-          icon: 'icon-iconfonticon-dianyu',
+          icon: 'database',
           title: '数据监控',
         },
         {
@@ -158,7 +158,7 @@ export default defineConfig({
           exact: true,
           component: 'monitor/service',
           name: '服务监控',
-          icon: 'icon-iconfonticon-dianyu',
+          icon: 'fundView',
           title: '服务监控',
         },
         { component: '@/pages/404' },
@@ -167,14 +167,14 @@ export default defineConfig({
     {
       path: '/system',
       name: '系统管理',
-      icon: 'icon-iconfonticon-dianyu',
+      icon: 'control',
       routes: [
         {
           path: '/system/user',
           exact: true,
           component: 'system/user',
           name: '用户管理',
-          icon: 'icon-iconfonticon-dianyu',
+          icon: 'user',
           title: '用户管理',
         },
         {
@@ -182,7 +182,7 @@ export default defineConfig({
           exact: true,
           component: 'system/role',
           name: '角色管理',
-          icon: 'icon-iconfonticon-dianyu',
+          icon: 'idcard',
           title: '角色管理',
         },
         {
@@ -190,7 +190,7 @@ export default defineConfig({
           exact: true,
           component: 'system/menu',
           name: '菜单管理',
-          icon: 'icon-iconfonticon-dianyu',
+          icon: 'menu',
           title: '菜单管理',
         },
         {
@@ -198,7 +198,7 @@ export default defineConfig({
           exact: true,
           component: 'system/param',
           name: '参数设置',
-          icon: 'icon-iconfonticon-dianyu',
+          icon: 'tool',
           title: '参数设置',
         },
         {
@@ -206,20 +206,20 @@ export default defineConfig({
           exact: true,
           component: 'system/notice',
           name: '通知管理',
-          icon: 'icon-iconfonticon-dianyu',
+          icon: 'alert',
           title: '通知管理',
         },
         {
           path: '/system/log',
           name: '日志管理',
-          icon: 'icon-iconfonticon-dianyu',
+          icon: 'schedule',
           routes: [
             {
               path: '/system/log/operate',
               exact: true,
               component: 'system/log/operate',
               name: '操作日志',
-              icon: 'icon-iconfonticon-dianyu',
+              icon: 'snippets',
               title: '操作日志',
             },
             {
@@ -227,7 +227,7 @@ export default defineConfig({
               exact: true,
               component: 'system/log/login',
               name: '登录日志',
-              icon: 'icon-iconfonticon-dianyu',
+              icon: 'safety',
               title: '登录日志',
             },
             { component: '@/pages/404' },
