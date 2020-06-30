@@ -8,7 +8,7 @@ export default defineConfig({
     loading: '@/loading',
   },
   history: { type: 'hash' },
-  publicPath: 'https://cdn.jsdelivr.net/gh/fierew/blog-admin-cdn@v1.0.5/',
+  publicPath: 'https://cdn.jsdelivr.net/gh/fierew/fierew.github.io@v1.0.5/',
   runtimePublicPath: true,
   antd: {
     dark: false,
@@ -16,7 +16,7 @@ export default defineConfig({
   },
   layout: {
     name: 'Blog Admin',
-    locale: false,
+    locale: true,
   },
   locale: {
     default: 'zh-CN',
