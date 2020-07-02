@@ -43,6 +43,15 @@ export async function getInitialState() {
   };
 }
 
+// 在初始加载和路由切换时做一些事情
+export function onRouteChange({ location, routes, action }: any) {
+  // 获取localstorage的用户登录信息
+  // const userId = localStorage.getItem("userId")
+  // if(location.pathname !== '/login' && !userId){
+  //   history.push('/login');
+  // }
+}
+
 // let extraRoutes: any; // 服务端返回路由
 // export function patchRoutes({ routes }: any) {
 
