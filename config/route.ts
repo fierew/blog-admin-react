@@ -4,7 +4,6 @@ export const routes: IBestAFSRoute[] = [
   {
     path: '/',
     exact: true,
-    component: 'index',
     redirect: '/dashboard',
   },
   {
@@ -56,7 +55,7 @@ export const routes: IBestAFSRoute[] = [
         icon: 'highlight',
         title: '发布文章',
       },
-      { component: '@/pages/404' },
+      { path: '/article', exact: false, component: '@/pages/404' },
     ],
   },
   {
@@ -136,7 +135,7 @@ export const routes: IBestAFSRoute[] = [
         icon: 'fundView',
         title: '服务监控',
       },
-      { component: '@/pages/404' },
+      { path: '/monitor', exact: false, component: '@/pages/404' },
     ],
   },
   {
@@ -205,14 +204,15 @@ export const routes: IBestAFSRoute[] = [
             icon: 'safety',
             title: '登录日志',
           },
-          { component: '@/pages/404' },
+          { path: '/system/log', exact: false, component: '@/pages/404' },
         ],
       },
-      { component: '@/pages/404' },
+      { path: '/system', exact: false, component: '@/pages/404' },
     ],
   },
   {
     path: '/500',
+    exact: true,
     component: '@/pages/500',
     layout: {
       hideMenu: true,
@@ -221,11 +221,18 @@ export const routes: IBestAFSRoute[] = [
   },
   {
     path: '/403',
+    exact: true,
     component: '@/pages/403',
     layout: {
       hideMenu: true,
       hideNav: true,
     },
   },
-  { component: '@/pages/404' },
+  {
+    component: '@/pages/404',
+    layout: {
+      hideMenu: true,
+      hideNav: true,
+    },
+  },
 ];

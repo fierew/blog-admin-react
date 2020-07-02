@@ -26,7 +26,7 @@ export const layout = {
     return (
       <UseRequestProvider
         value={{
-          requestMethod: param => request(param.url, param),
+          requestMethod: (param: any) => request(param.url, param),
         }}
       >
         {children}
