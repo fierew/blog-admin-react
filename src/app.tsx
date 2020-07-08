@@ -1,7 +1,7 @@
 import React from 'react';
 import request from '@/utils/request';
 import { UseRequestProvider } from 'ahooks';
-import { history } from 'umi';
+import { history, useModel } from 'umi';
 import { loopMenuItem } from '@/utils/patchMenus';
 
 export const layout = {
@@ -44,29 +44,25 @@ export async function getInitialState() {
 }
 
 // 在初始加载和路由切换时做一些事情
-export function onRouteChange({ location, routes, action }: any) {
+export async function onRouteChange({ location, routes, action }: any) {
+  const initialState = await getInitialState();
+  console.log(initialState);
   // 获取localstorage的用户登录信息
   // const userId = localStorage.getItem("userId")
   // if(location.pathname !== '/login' && !userId){
   //   history.push('/login');
   // }
+  // routes[0].routes = [
+  //   {
+  //     path: '/dashboard',
+  //     exact: true,
+  //     component: require(`@/pages/files`).default,
+  //     name: '仪表盘',
+  //     icon: 'dashboard',
+  //     title: '仪表盘',
+  //   }
+  // ]
 }
-
-// let extraRoutes: any; // 服务端返回路由
-// export function patchRoutes({ routes }: any) {
-
-//   // 修改默认路由 直接 routes，不需要返回
-//   routes[0].routes = [
-//     {
-//       path: '/dashboard',
-//       exact: true,
-//       component: require(`@/pages/${extraRoutes}`).default,
-//       name: '仪表盘',
-//       icon: 'dashboard',
-//       title: '仪表盘',
-//     }
-//   ]
-// }
 
 // // 项目启动时
 // export function render(oldRender: () => void) {
