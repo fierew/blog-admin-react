@@ -39,10 +39,11 @@ export default () => {
   };
 
   // 获取富文本内容
-  // @ts-ignore
-  const getContent = () =>
-    window.document.querySelector('iframe[id^="tiny-react"]').contentWindow
-      .document.body.innerHTML;
+  const getContent = () => {
+    // @ts-ignore
+    return window.document.querySelector('iframe[id^="tiny-react"]')
+      .contentWindow.document.body.innerHTML;
+  };
 
   // 初始化富文本
   const editorObj = {
