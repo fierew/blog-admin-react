@@ -1,8 +1,9 @@
 import React from 'react';
 import request from '@/utils/request';
 import { UseRequestProvider } from 'ahooks';
-import { history, useModel } from 'umi';
+import { history, addLocale, getAllLocales } from 'umi';
 import { loopMenuItem } from '@/utils/patchMenus';
+import zhCN from 'antd/es/locale/zh_CN';
 
 export const layout = {
   //iconfontUrl: "/icons/iconfont.js",
@@ -64,12 +65,29 @@ export async function onRouteChange({ location, routes, action }: any) {
   // ]
 }
 
-// // 项目启动时
-// export function render(oldRender: () => void) {
+// 项目启动时
+export function render(oldRender: () => void) {
+  // 向服务端请求路由数据
+  // request('http://localhost:8080/routes').then((res) => {
+  //   extraRoutes = res.data[0].key;
+  //   oldRender()
+  // });
 
-//   // 向服务端请求路由数据
-//   request('http://localhost:8080/routes').then((res) => {
-//     extraRoutes = res.data[0].key;
-//     oldRender()
-//   });
-// }
+  const antdZhCN: any = zhCN;
+
+  // 新增国际化
+  addLocale(
+    'zh-CN',
+    {
+      // id 列表
+      name: '妳好，{name}',
+    },
+    {
+      momentLocale: 'zh-tw',
+      antd: antdZhCN,
+    },
+  );
+  console.log(getAllLocales());
+
+  oldRender();
+}
