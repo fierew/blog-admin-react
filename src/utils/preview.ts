@@ -5,13 +5,12 @@ const buildPreviewHtml = (content: string) => {
         <html>
             <head>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-                <base href="${host}/article/">
-                <link type="text/css" rel="stylesheet" href="${host}/tinymce/skins/ui/oxide/content.mobile.min.css">
-                <link type="text/css" rel="stylesheet" href="${host}/prism/prism.css">
+                <base href="${host}/">
+                <link type="text/css" rel="stylesheet" href="tinymce/skins/ui/oxide/content.min.css">
+                <link type="text/css" rel="stylesheet" href="prism/prism.css">
             </head>
             <body id="tinymce" class="mce-content-body ">
                 ${content}
-                <script src="${host}/prism/prism.js"  ></script>
             </body>
         </html>`;
 };

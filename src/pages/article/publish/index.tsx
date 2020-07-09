@@ -8,13 +8,9 @@ import { preview } from '@/utils/preview';
 declare global {
   interface Window {
     previewWindow: any;
-    tinymce: any;
     publicPath: string;
   }
 }
-
-// 富文本框内容
-let editorContent = '';
 
 export default () => {
   const [value, setValue] = useState('');
@@ -23,28 +19,30 @@ export default () => {
   const [modelTitle, setModelTitle] = useState('');
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
-  const { tinymce } = window;
 
   // 初始化模态框的标题
-  if (id !== undefined) {
-    useEffect(() => {
+  useEffect(() => {
+    if (id !== undefined) {
       setModelTitle('编辑文章');
-    }, []);
-  } else {
-    useEffect(() => {
+    } else {
       setModelTitle('发布文章');
-    }, []);
-  }
+    }
+  });
 
   // 富文本框输入内容时的回调
   const handleEditorChange = (content: any, editor: any) => {
     setValue(content);
-    editorContent = content;
     setFormIsHalfFilledOut(
       content !== '' && content !== '<p></p>' ? true : false,
     );
-    //console.log('Content was updated:', editorContent);
+    //console.log('Content was updated:');
   };
+
+  // 获取富文本内容
+  // @ts-ignore
+  const getContent = () =>
+    window.document.querySelector('iframe[id^="tiny-react"]').contentWindow
+      .document.body.innerHTML;
 
   // 初始化富文本
   const editorObj = {
@@ -136,7 +134,8 @@ export default () => {
         tooltip: '预览',
         icon: 'preview',
         onAction: () => {
-          preview(editorContent);
+          let previewContent = getContent();
+          preview(previewContent);
         },
       });
     },
@@ -148,17 +147,13 @@ export default () => {
     },
     save_onsavecallback: function() {
       // 保存回调
-
-      if (editorContent !== '' && editorContent !== '<p></p>') {
-        //console.log(editorContent);
-
+      const saveContent = getContent();
+      if (
+        saveContent !== '' &&
+        saveContent !== '<p><br data-mce-bogus="1"></p>'
+      ) {
         setVisible(true);
       }
-
-      //tinymce.activeEditor.execCommand('mceCancel');
-    },
-    save_oncancelcallback: function() {
-      console.log('Save canceled');
     },
   };
 
@@ -220,12 +215,10 @@ export default () => {
             mode="multiple"
             size="large"
             placeholder="select one country"
-            //defaultValue={['china']}
-            //optionLabelProp="label"
             labelInValue={true}
             options={[{ label: 'docker', value: 'docker' }]}
             tagRender={tagRender}
-          ></Select>
+          />
         </Form.Item>
       </Form>
     </Modal>
