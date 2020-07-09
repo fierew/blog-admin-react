@@ -113,7 +113,7 @@ export default () => {
       key: 'operate',
       fixed: 'right',
       width: 110,
-      render: (text: any, record: { status: number, id: number }) => {
+      render: (text: any, record: { status: number; id: number }) => {
         const editUrl = `/article/publish/${record.id}`;
 
         return (

@@ -2,7 +2,7 @@ import React from 'react';
 import request from '@/utils/request';
 import { UseRequestProvider } from 'ahooks';
 import { history, addLocale, getAllLocales } from 'umi';
-import { loopMenuItem } from '@/utils/patchMenus';
+import { loopMenuItem } from '@/component/patchMenus';
 import zhCN from 'antd/es/locale/zh_CN';
 
 export const layout = {

@@ -1,45 +1,45 @@
 #root {
-    height: 100%;
+  height: 100%;
 }
 
 .umi-plugin-layout-right .ant-dropdown-trigger .ant-avatar:nth-child(1) {
-    margin-right: 8px;
+  margin-right: 8px;
 }
 
 .ant-pro-sider-menu-sider.fix-sider-bar.ant-layout-sider.ant-layout-sider-dark {
-    box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35)
+  box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35)
 }
 
 .umi-plugin-layout-right .ant-dropdown-trigger:hover {
-    background: rgba(0, 0, 0, 0.025);
+  background: rgba(0, 0, 0, 0.025);
 }
 
 /* 滚动条的宽度 */
 .ant-pro-sider-menu-sider::-webkit-scrollbar {
-    width: 2px;
-    height: 9px;
+  width: 2px;
+  height: 9px;
 }
 
 /* 滚动条外层轨道 */
 .ant-pro-sider-menu-sider::-webkit-scrollbar-track {
-    width: 2px;
-    background-color: #d2d3d6;
-    -webkit-border-radius: 2em;
-    -moz-border-radius: 2em;
-    border-radius: 2em;
+  width: 2px;
+  background-color: #d2d3d6;
+  -webkit-border-radius: 2em;
+  -moz-border-radius: 2em;
+  border-radius: 2em;
 }
 
 /* 滚动条控制方块 */
 .ant-pro-sider-menu-sider::-webkit-scrollbar-thumb {
-    background-color: #606d71;
-    background-clip: padding-box;
-    min-height: 28px;
-    -webkit-border-radius: 2em;
-    -moz-border-radius: 2em;
-    border-radius: 2em;
+  background-color: #606d71;
+  background-clip: padding-box;
+  min-height: 28px;
+  -webkit-border-radius: 2em;
+  -moz-border-radius: 2em;
+  border-radius: 2em;
 }
 
 /* 滚动条移上去的背景 */
 .ant-pro-sider-menu-sider::-webkit-scrollbar-thumb:hover {
-    background-color: #fff;
+  background-color: #fff;
 }
