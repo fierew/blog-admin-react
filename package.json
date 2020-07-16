@@ -20,7 +20,7 @@
     ]
   },
   "dependencies": {
-    "@ant-design/pro-layout": "^5.0.17",
+    "@ant-design/pro-layout": "^6.2.4",
     "@ant-design/pro-table": "^2.4.1",
     "@tinymce/tinymce-react": "^3.6.0",
     "@umijs/preset-react": "1.x",
